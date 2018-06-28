@@ -4,7 +4,6 @@ import Carousel from '../carousel/carousel';
 import CarouselItem from '../carouselitem/carouselitem';
 import { connect } from 'react-redux';
 import { fetchCarouselData } from "../../store/carousel/action";
-import { imageSourceURL } from "../../config/carousel.config"
 
 class HomePage extends React.Component {
 
@@ -17,7 +16,7 @@ class HomePage extends React.Component {
     }
 
     componentDidMount() {              
-        this.props.fetchCarouselData(imageSourceURL);        
+        this.props.fetchCarouselData();        
     }
   
     componentWillReceiveProps(newProps) {              
@@ -40,7 +39,7 @@ class HomePage extends React.Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-      fetchCarouselData: (imageSource) => dispatch(fetchCarouselData(imageSource))
+      fetchCarouselData: () => dispatch(fetchCarouselData())
     };
 };
 
